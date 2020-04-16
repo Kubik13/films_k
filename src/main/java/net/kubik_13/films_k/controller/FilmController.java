@@ -50,7 +50,7 @@ public class FilmController {
     public String updateFilmForm(@PathVariable("filmID") Integer filmID, Model model){
         Film film = filmService.findById(filmID);
         model.addAttribute("film", film);
-        return "/film-update";
+        return "film-update";
     }
     @PostMapping("/film-update")
     public String updateFilm(Film film){
