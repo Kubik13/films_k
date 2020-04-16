@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Films</title>
+    <style type="text/css">
+        TABLE {
+            border-collapse: collapse; /* Убираем двойные линии между ячейками */
+        }
+        TD, TH {
+            padding: 3px; /* Поля вокруг содержимого таблицы */
+            border: 1px solid black; /* Параметры рамки */
+        }
+        TH {
+            background: #b0e0e6; /* Цвет фона */
+        }
+    </style>
+</head>
+<body>
+<div th:switch="${films}">
+    <h2 th:case="null">No films found!</h2>
+    <div th:case="*">
+        <h2>Films</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Film ID</th>
+                <th>Rus name</th>
+                <th>Original name</th>
+                <th>Description</th>
+                <th>Film URL</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="film : ${films}">
+                <td th:text="${film.filmID}"></td>
+                <td th:text="${film.nameRus}"></td>
+                <td th:text="${film.nameOriginal}"></td>
+                <td th:text="${film.description}"></td>
+                <td th:text="${film.filmURL}"></td>
+                <td><a th:href="@{film-update/{id}(id=${film.filmID})}">Edit</a></td>
+                <td><a th:href="@{film-delete/{id}(id=${film.filmID})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/film-create">Create film</a></p>
+    <p><a href="/receive-films">Get films from kino.ru</a></p>
+</div>
+</body>
+</html>

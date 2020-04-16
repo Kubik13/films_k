@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create film</title>
+</head>
+<body>
+<form action="#" th:action="@{/film-create}" th:object="${film}" method="post">
+    <label for="filmID">film ID</label>
+    <input type="text" th:field="*{filmID}" id="filmID" placeholder="film ID">
+    <br>
+    <label for="nameRus">nameRus</label>
+    <input type="text" th:field="*{nameRus}" id="nameRus" placeholder="name Rus">
+    <br>
+    <label for="nameOriginal">nameOriginal</label>
+    <input type="text" th:field="*{nameOriginal}" id="nameOriginal" placeholder="name Original">
+    <br>
+    <label for="description">description</label>
+    <input type="text" th:field="*{description}" id="description" placeholder="description">
+    <br>
+    <label for="filmURL">filmURL</label>
+    <input type="text" th:field="*{filmURL}" id="filmURL" placeholder="film URL">
+    <br>
+    <input type="submit" value="Create Film">
+</form>
+</body>
+</html>
