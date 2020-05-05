@@ -26,6 +26,11 @@ public class FilmController {
         this.filmService = filmService;
     }
 
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
+
     @GetMapping("/films")
     public String findAll(Model model){
         List<Film> films = filmService.findAll();
