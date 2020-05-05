@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Data                               //так как используем lombok геттеры и сеттеры будут некоторые конструкторы и тустринг будут реализованы по умолчанию
+@Data                               //так как используем lombok геттеры и сеттеры некоторые конструкторы и тустринг будут реализованы по умолчанию
 @Entity                             //указывает что есть связь с базой данных
 @Table (name = "films_k")
 
@@ -31,4 +31,9 @@ public class Film {
     private String filmURL;
     @Column(name = "DESCRIPTION")
     private String description;
+
+    public String getShortDescription(){
+        if (description.length() < 100) return description;
+        else return description.substring(0,100) + "...";
+    }
 }

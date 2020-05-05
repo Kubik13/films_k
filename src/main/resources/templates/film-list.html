@@ -10,9 +10,11 @@
         TD, TH {
             padding: 3px; /* Поля вокруг содержимого таблицы */
             border: 1px solid black; /* Параметры рамки */
+            vertical-align: middle;
         }
         TH {
             background: #b0e0e6; /* Цвет фона */
+            align-content: center;
         }
     </style>
 </head>
@@ -33,13 +35,13 @@
             </thead>
             <tbody>
             <tr th:each="film : ${films}">
-                <td th:text="${film.filmID}"></td>
-                <td th:text="${film.nameRus}"></td>
-                <td th:text="${film.nameOriginal}"></td>
-                <td th:text="${film.description}"></td>
+                <td align="center" th:text="${film.filmID}"></td>
+                <td width="200" th:text="${film.nameRus}"></td>
+                <td width="200" th:text="${film.nameOriginal}"></td>
+                <td width="400" th:text="${film.getShortDescription()}"></td>
                 <td th:text="${film.filmURL}"></td>
-                <td><a th:href="@{film-update/{id}(id=${film.filmID})}">Edit</a></td>
-                <td><a th:href="@{film-delete/{id}(id=${film.filmID})}">Delete</a></td>
+                <td><a th:href="@{film-update/{id}(id=${film.filmID})}">Edit</a><br>
+                    <a th:href="@{film-delete/{id}(id=${film.filmID})}">Delete</a></td>
             </tr>
             </tbody>
         </table>
