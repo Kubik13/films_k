@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity                             //указывает что есть связь с базой данных
 @Table (name = "films_k")
 
-public class Film {
+public class Film { //TODO добавить поля с адресом постера и трейлера
     public Film() {
     }
 
@@ -21,15 +21,15 @@ public class Film {
     }
 
     @Id
-    @Column(name = "FILMID")
+    @Column(name = "filmid")
     private Integer filmID;
-    @Column(name = "RUSNAME")
+    @Column(name = "rusname")
     private String nameRus;
-    @Column(name = "ORIGINALNAME")
+    @Column(name = "originalname")
     private String nameOriginal;
-    @Column(name = "FILMURL")
+    @Column(name = "filmurl")
     private String filmURL;
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 
     public String getShortDescription(){

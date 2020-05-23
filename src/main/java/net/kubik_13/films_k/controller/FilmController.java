@@ -18,7 +18,6 @@ import java.util.List;
 
 @Controller
 public class FilmController {
-
     private final FilmService filmService;
 
     @Autowired
@@ -62,7 +61,7 @@ public class FilmController {
         filmService.saveFilm(film);
         return "redirect:/films";
     }
-    @GetMapping("/receive-films")
+    @GetMapping("/receive-films")  //TODO забирать с кино ссыль на постер и на трейлер фильма
     public String receiveFilms() throws IOException {
         List<String> filmLinks = new ArrayList<>();
 
