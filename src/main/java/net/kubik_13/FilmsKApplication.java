@@ -1,4 +1,4 @@
-package net.kubik_13.films_k;
+package net.kubik_13;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

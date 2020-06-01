@@ -1,0 +1,69 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insta info</title>
+    <style type="text/css">
+        TABLE {
+            border-collapse: collapse; /* Убираем двойные линии между ячейками */
+        }
+        TD, TH {
+            padding: 3px; /* Поля вокруг содержимого таблицы */
+            border: 1px solid black; /* Параметры рамки */
+            vertical-align: middle;
+            horiz-align: center;
+        }
+        TH {
+            background: #b0e0e6; /* Цвет фона */
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <form action="#" th:action="@{/insta-change}" th:object="${acc}" method="post">
+                    <label for="account">enter the instagram account</label>
+                    <input type="text" th:field="*{userName}" id="account" placeholder="acc">
+                    <br>
+                    <input type="submit" value="Update account">
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td th:text="'account name : ' + ${acc.userName}"></td>
+        </tr>
+        <tr>
+            <td th:text="'is it private : ' + ${acc.isPrivate}"></td>
+        </tr>
+        <tr>
+            <td th:text="'number of posted media : ' + ${acc.numberOfMediaPosted}"></td>
+        </tr>
+        <tr>
+            <td>
+                profile picture :
+            </td>
+            <td>
+                <img th:src="@{${acc.profilePicUrlHd}}"  alt="profile picture"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                last 3 photos :
+            </td>
+            <td>
+                <img th:src="@{${acc.mediaList.get(0).getDisplayUrl()}}"  alt="last pic 1" height="320"/>
+            </td>
+            <td>
+                <img th:src="@{${acc.mediaList.get(1).getDisplayUrl()}}"  alt="last pic 2" height="320"/>
+            </td>
+            <td>
+                <img th:src="@{${acc.mediaList.get(2).getDisplayUrl()}}"  alt="last pic 3" height="320"/>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
